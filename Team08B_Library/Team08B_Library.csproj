@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{390E6E9A-BEBB-4A5D-AA7B-4A536C90347B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Team08B_Library</RootNamespace>
+    <AssemblyName>Team08B_Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Book.cs">
+      <DependentUpon>LibraryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="crBookList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBookList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crManagementReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crManagementReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crPie.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPie.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmAddNewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewMember.designer.cs">
+      <DependentUpon>frmAddNewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookList.designer.cs">
+      <DependentUpon>frmBookList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddNewBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewBook.designer.cs">
+      <DependentUpon>frmAddNewBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookInfo.designer.cs">
+      <DependentUpon>frmBookInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookUpdate.designer.cs">
+      <DependentUpon>frmBookUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBorrowBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBorrowBook.designer.cs">
+      <DependentUpon>frmBorrowBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBorrowHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBorrowHistory.designer.cs">
+      <DependentUpon>frmBorrowHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGenerateReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGenerateReport.designer.cs">
+      <DependentUpon>frmGenerateReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManagementReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManagementReport.designer.cs">
+      <DependentUpon>frmManagementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemberInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemberInfo.designer.cs">
+      <DependentUpon>frmMemberInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMemberUpdates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMemberUpdates.designer.cs">
+      <DependentUpon>frmMemberUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPieChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPieChart.designer.cs">
+      <DependentUpon>frmPieChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchBook.designer.cs">
+      <DependentUpon>frmSearchBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchMember.designer.cs">
+      <DependentUpon>frmSearchMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmWelcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWelcome.designer.cs">
+      <DependentUpon>frmWelcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssueTran.cs">
+      <DependentUpon>LibraryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LibrarySet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Member.cs">
+      <DependentUpon>LibraryEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnBook.designer.cs">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>LibraryEntities.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="crBookList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBookList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crManagementReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crManagementReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crPie.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPie.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddNewMember.resx">
+      <DependentUpon>frmAddNewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookList.resx">
+      <DependentUpon>frmBookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddNewBook.resx">
+      <DependentUpon>frmAddNewBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookInfo.resx">
+      <DependentUpon>frmBookInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookUpdate.resx">
+      <DependentUpon>frmBookUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBorrowBook.resx">
+      <DependentUpon>frmBorrowBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBorrowHistory.resx">
+      <DependentUpon>frmBorrowHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGenerateReport.resx">
+      <DependentUpon>frmGenerateReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManagementReport.resx">
+      <DependentUpon>frmManagementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemberInfo.resx">
+      <DependentUpon>frmMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMemberUpdates.resx">
+      <DependentUpon>frmMemberUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPieChart.resx">
+      <DependentUpon>frmPieChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchBook.resx">
+      <DependentUpon>frmSearchBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchMember.resx">
+      <DependentUpon>frmSearchMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWelcome.resx">
+      <DependentUpon>frmWelcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReturnBook.resx">
+      <DependentUpon>ReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="LibraryEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibraryEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LibraryEntities.edmx.diagram">
+      <DependentUpon>LibraryEntities.edmx</DependentUpon>
+    </None>
+    <None Include="LibrarySet.xsc">
+      <DependentUpon>LibrarySet.xsd</DependentUpon>
+    </None>
+    <None Include="LibrarySet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibrarySet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LibrarySet.xss">
+      <DependentUpon>LibrarySet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13770649.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13770649_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-icon-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\698633-icon-117-lock-stripes-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13770649_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13770649_40_flip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13770649_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LibraryEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryEntities.edmx</DependentUpon>
+      <LastGenOutput>LibraryEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LibraryEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryEntities.edmx</DependentUpon>
+      <LastGenOutput>LibraryEntities.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\Background_purple.png" />
+    <None Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

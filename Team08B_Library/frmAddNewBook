@@ -1,0 +1,149 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Transactions;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Team08B_Library
+{
+    public partial class frmAddNewBook : Form
+    {
+        public frmAddNewBook()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SA45_Team08B_LibraryEntities context = new SA45_Team08B_LibraryEntities();
+            lblErrorID.Text = "";
+            lblErrorPublisher.Text = "";
+            lblErrorStock.Text = "";
+            lblErrorTitle.Text = "";
+            lblErrorType.Text = "";
+            lblErrorAuthor.Text = "";
+
+
+            short bkID;
+            short bkStock;
+            if (!Int16.TryParse(txtBID.Text, out bkID))
+            {
+                lblErrorID.Text = "Invalid Entry for Book ID:must be short integer";
+
+            }
+
+            if (txtBookTitle.Text == "")
+            {
+                lblErrorTitle.Text = "BookTitle cannot be vacant";
+
+            }
+
+            if (cmbBookType.Text == "")
+            {
+                lblErrorType.Text = "Please select a book type";
+
+            }
+
+            if (txtPublisher.Text == "")
+            {
+                lblErrorPublisher.Text = "Publisher cannot be vacant";
+
+            }
+            if (txtAuthor.Text == "")
+            {
+                lblErrorAuthor.Text = "Author cannot be vacant";
+
+            }
+            if (!Int16.TryParse(txtTotalStock.Text, out bkStock))
+            {
+                lblErrorStock.Text = "Invalid Entry for TotalStock:must be short integer";
+
+            }
+
+            else
+            { 
+                DialogResult r = MessageBox.Show("Are you sure to add the book?", "Confirm", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+
+
+
+                    using (TransactionScope ts = new TransactionScope())
+                    {
+                        
+                        
+
+                            Book bk = new Book();
+                            bk.BookID = Convert.ToInt16(txtBID.Text);
+                            bk.BookTitle = txtBookTitle.Text;
+                            bk.BookType = cmbBookType.Text;
+                            bk.Author = txtAuthor.Text;
+                            bk.Publisher = txtPublisher.Text;
+                            bk.TotalStock = Convert.ToInt16(txtTotalStock.Text);
+
+
+                            context.Books.Add(bk);
+
+                            context.SaveChanges();
+
+                            ts.Complete();
+                            sslAdd.Text = "You have added the book successfully!";
+                        
+                       
+
+                    }
+                }
+                
+            }
+        }
+
+        private void frmAddNewBook_Load(object sender, EventArgs e)
+        {
+            lblErrorStock.Text = "";
+        }
+
+        private void txtBID_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtBID_Leave(object sender, EventArgs e)
+        {
+            SA45_Team08B_LibraryEntities context = new SA45_Team08B_LibraryEntities();
+
+            long  bkID;
+            if (!Int64.TryParse(txtBID.Text, out bkID ))
+            {
+                lblErrorID.Text = "Only integer numbers are allowed";
+                return;
+            }
+            else if (bkID > 32767)
+            {
+                lblErrorID.Text = "This number is not allowed :must be short integer";
+            }
+
+            else
+            {
+                try
+                {
+                    bkID = Convert.ToInt16(txtBID.Text);
+                    Book bk = context.Books.Where(x => x.BookID == bkID).First();
+                    lblErrorID.Text = "This ID has existed";
+                }
+                
+                catch (Exception ex)
+                {
+                    lblErrorID.Text = "ID is available";
+
+                }
+            }
+
+
+        }
+    }
+}
